@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from "react"
+import {Welcome, Jokes} from './components/index.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+    constructor() {
+        super()
+        this.state = {
+            welcome: true
+        }
+        this.irChistes = this.irChistes.bind(this);
+        this.irBienvenida = this.irBienvenida.bind(this);
+    }
+    
+    irChistes() { this.setState({welcome: false}) }
+    irBienvenida(){ this.setState({welcome: true}) }
+
+    render(){
+              const welcome = this.state.welcome
+              
+              if(welcome) return (<Welcome irChistes={this.irChistes}/>)
+              else  return ( <Jokes irBienvenida={this.irBienvenida} />)  
+    }
 }
-
-export default App;
+export default App
