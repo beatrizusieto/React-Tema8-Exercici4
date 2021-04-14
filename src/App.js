@@ -2,8 +2,7 @@ import React, {Component} from "react"
 import {Welcome, Jokes} from './components/index.js';
 
 class App extends Component {
-
-    constructor() {
+     constructor() {
         super()
         this.state = {
             welcome: true
